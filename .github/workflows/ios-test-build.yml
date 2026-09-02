@@ -92,3 +92,8 @@ jobs:
           path: build/ios-ipa/*.ipa
           if-no-files-found: error
           retention-days: 7
+
+      # Keep checkout cleanup from traversing legacy Android gitlinks that have no .gitmodules entries.
+      - name: Clear legacy submodule entries
+        if: always()
+        run: git update-index --force-remove -- libass-android vendor/TorrServer vendor/quickjs-kt || true
