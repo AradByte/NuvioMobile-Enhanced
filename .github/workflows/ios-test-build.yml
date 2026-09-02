@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       configuration:
-        description: Production-optimized or fast validation build
+        description: Fast validation build by default, or production-optimized build
         required: true
         type: choice
         options:
           - Debug
           - Release
-        default: Release
+        default: Debug
 
 permissions:
   contents: read
