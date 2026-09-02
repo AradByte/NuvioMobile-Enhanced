@@ -55,7 +55,6 @@ jobs:
             konan-${{ runner.os }}-${{ runner.arch }}-
 
       - name: Configure runtime properties
-        if: env.RELEASE_PROPERTIES_BASE64 != ''
         run: |
           printf '%s' "${RELEASE_PROPERTIES_BASE64}" | base64 --decode > local.properties
           sed -i '' -E '/^[[:space:]]*(sdk\.dir|NUVIO_RELEASE_STORE_FILE)[[:space:]]*=/d' local.properties
